@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "solve": "deno run --allow-read mod.ts",
+    "test": "deno test"
+  }
+}
