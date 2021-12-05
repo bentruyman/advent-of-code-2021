@@ -11,8 +11,8 @@ export function part1(input: string[]): number {
 export function part2(input: string[]): number {
   const list = input.map(toBitList);
 
-  let o2 = rate(list, mostCommon);
-  let co2 = rate(list, leastCommon);
+  const o2 = rate(list, mostCommon);
+  const co2 = rate(list, leastCommon);
 
   return toDecimal(o2) * toDecimal(co2);
 }

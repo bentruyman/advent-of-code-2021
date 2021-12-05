@@ -18,20 +18,20 @@ function parseStringList(data: string): string[] {
   return data.split("\n");
 }
 
-const solutions: ((input: string) => Promise<[unknown, unknown]>)[] = [
-  async (input) => {
+const solutions: ((input: string) => [unknown, unknown])[] = [
+  (input) => {
     const data = parseNumberList(input);
     return [day1.part1(data), day1.part2(data)];
   },
-  async (input) => {
+  (input) => {
     const data = parseStringList(input);
     return [day2.part1(data), day2.part2(data)];
   },
-  async (input) => {
+  (input) => {
     const data = parseStringList(input);
     return [day3.part1(data), day3.part2(data)];
   },
-  async (input) => {
+  (input) => {
     return [day4.part1(input), day4.part2(input)];
   },
 ];
