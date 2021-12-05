@@ -18,27 +18,26 @@ function parseStringList(data: string): string[] {
   return data.split("\n");
 }
 
-async function solveDay1(): Promise<void> {
-  const data = parseNumberList(await readInput(1));
-  console.log("Day 1", day1.part1(data), day1.part2(data));
-}
+const solutions: ((input: string) => Promise<[unknown, unknown]>)[] = [
+  async (input) => {
+    const data = parseNumberList(input);
+    return [day1.part1(data), day1.part2(data)];
+  },
+  async (input) => {
+    const data = parseStringList(input);
+    return [day2.part1(data), day2.part2(data)];
+  },
+  async (input) => {
+    const data = parseStringList(input);
+    return [day3.part1(data), day3.part2(data)];
+  },
+  async (input) => {
+    return [day4.part1(input), day4.part2(input)];
+  },
+];
 
-async function solveDay2(): Promise<void> {
-  const data = parseStringList(await readInput(2));
-  console.log("Day 2", day2.part1(data), day2.part2(data));
+for (let index = 0; index < solutions.length; index++) {
+  const input = await readInput(index + 1);
+  const solution = await solutions[index](input);
+  console.log(`Day ${index + 1}:`, ...solution);
 }
-
-async function solveDay3(): Promise<void> {
-  const data = parseStringList(await readInput(3));
-  console.log("Day 3", day3.part1(data), day3.part2(data));
-}
-
-async function solveDay4(): Promise<void> {
-  const data = await readInput(4);
-  console.log("Day 4", day4.part1(data), day4.part2(data));
-}
-
-await solveDay1();
-await solveDay2();
-await solveDay3();
-await solveDay4();
