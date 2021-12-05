@@ -2,14 +2,13 @@
   "folders": [
     {
       "path": "."
-    },
-    {
-      "path": "2021"
     }
   ],
   "settings": {
     "[typescript]": {
       "editor.formatOnSave": true
-    }
+    },
+    "deno.enable": true,
+    "deno.lint": true
   }
 }

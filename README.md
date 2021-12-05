@@ -1,7 +1,20 @@
-# Advent of Code
+# Advent of Code 2021
 
-> My [Advent of Code](https://adventofcode.com/) solutions
+## Prerequesites
 
-## Years
+- Install [Deno](https://deno.land/#installation)
+- Install [Velociraptor](https://velociraptor.run/docs/installation/)
 
-- [2021](2021)
+## Usage
+
+To run all tests:
+
+```console
+$ vr test
+```
+
+To generate all solutions:
+
+```console
+$ vr solve
+```
