@@ -4,6 +4,12 @@ import * as day3 from "./solution/day3.ts";
 import * as day4 from "./solution/day4.ts";
 import * as day5 from "./solution/day5.ts";
 
+async function exec(solution: number): Promise<void> {
+  const input = await readInput(solution);
+  const result = await solutions[solution - 1](input);
+  console.log(`Day ${solution}:`, ...result);
+}
+
 async function readInput(day: number): Promise<string> {
   const decoder = new TextDecoder();
   const data = await Deno.readFile(`./data/day${day}.txt`);
@@ -19,6 +25,7 @@ function parseStringList(data: string): string[] {
   return data.split("\n");
 }
 
+const day = parseInt(Deno.args[0]);
 const solutions: ((input: string) => [unknown, unknown])[] = [
   (input) => {
     const data = parseNumberList(input);
@@ -40,8 +47,10 @@ const solutions: ((input: string) => [unknown, unknown])[] = [
   },
 ];
 
-for (let index = 0; index < solutions.length; index++) {
-  const input = await readInput(index + 1);
-  const solution = await solutions[index](input);
-  console.log(`Day ${index + 1}:`, ...solution);
+if (isNaN(day)) {
+  for (let index = 1; index <= solutions.length; index++) {
+    await exec(index);
+  }
+} else {
+  await exec(day);
 }

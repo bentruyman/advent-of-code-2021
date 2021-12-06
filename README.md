@@ -13,8 +13,8 @@ To run all tests:
 $ vr test
 ```
 
-To generate all solutions:
+To run solutions:
 
 ```console
-$ vr solve
+$ vr solve [day]
 ```
