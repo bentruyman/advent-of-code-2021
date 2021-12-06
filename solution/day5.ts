@@ -59,7 +59,7 @@ function onlyDuplicates(
   dupes: Point[],
   point: Point,
   _index: number,
-  points: Point[]
+  points: Point[],
 ): Point[] {
   if (dupes.some((dupe) => isSamePoint(dupe, point))) return dupes;
   const instances = points.filter((possibleDupe) =>
