@@ -4,10 +4,16 @@ import * as day3 from "./solution/day3.ts";
 import * as day4 from "./solution/day4.ts";
 import * as day5 from "./solution/day5.ts";
 
-async function exec(solution: number): Promise<void> {
-  const input = await readInput(solution);
-  const result = await solutions[solution - 1](input);
-  console.log(`Day ${solution}:`, ...result);
+async function exec(day: number): Promise<void> {
+  const fn = solutions[day - 1];
+
+  if (fn === undefined) {
+    throw new Error(`No solution found for day: ${day}`);
+  }
+
+  const input = await readInput(day);
+  const result = await fn(input);
+  console.log(`Day ${day}:`, ...result);
 }
 
 async function readInput(day: number): Promise<string> {
