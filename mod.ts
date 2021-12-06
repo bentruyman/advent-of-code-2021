@@ -2,6 +2,7 @@ import * as day1 from "./solution/day1.ts";
 import * as day2 from "./solution/day2.ts";
 import * as day3 from "./solution/day3.ts";
 import * as day4 from "./solution/day4.ts";
+import * as day5 from "./solution/day5.ts";
 
 async function readInput(day: number): Promise<string> {
   const decoder = new TextDecoder();
@@ -33,6 +34,9 @@ const solutions: ((input: string) => [unknown, unknown])[] = [
   },
   (input) => {
     return [day4.part1(input), day4.part2(input)];
+  },
+  (input) => {
+    return [day5.part1(input), day5.part2(input)];
   },
 ];
 
